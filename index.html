@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Synergy Quiz App</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="quiz-container">
+
+            <h1>Interactive Quiz</h1>
+
+            <div id="start-box">
+                <button id="start-button" onclick="startQuiz()">Start Quiz</button>
+            </div>
+            <!-- I used most tags as placeholder, getting the value from the JS by calling the id, 
+             for any improvements pls take note of the id -->
+            <div id="progress-bar">
+                <div id="progress"></div>
+            </div>
+
+            <div id="question-box" style="display: none;">
+                <p id="question"></p>
+                <div id="answers">
+                    <button class="answer-button" onclick="selectAnswer(0)">Answer 1</button>
+                    <button class="answer-button" onclick="selectAnswer(1)">Answer 2</button>
+                    <button class="answer-button" onclick="selectAnswer(2)">Answer 3</button>
+                    <button class="answer-button" onclick="selectAnswer(3)">Answer 4</button>
+                </div>
+                <p id="feedback" style="margin-top: 10px;"></p>
+                <p id="timer">Time left: <span id="time-left">15</span> seconds</p>
+                <button id="next-button" onclick="nextQuestion()">Next</button>
+            </div>
+
+            <div id="result-box" style="display: none;">
+                <h2 id="score-overall">Your Score:</h2>
+                <p id="score"></p>
+                <div id="correct-answers"></div>
+                <button onclick="restartQuiz()">Restart Quiz</button>
+            </div>
+
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
