@@ -102,8 +102,25 @@ let questions = [
         answers: ["True", "False"],
         correctAnswer: 0,
         explanation: "Humans rely on oxygen for respiration, where oxygen is absorbed by the lungs and used to produce energy."
+    },
+    {
+        question: "Radiation transfers thermal energy.",
+        answers: ["True", "False"],
+        correctAnswer: 0,
+        explanation: "Radiation transfers energy in the form of electromagnetic waves, and it can transfer thermal energy without needing a medium."
+    },
+    {
+        question: "The process of converting liquid to gas is called condensation.",
+        answers: ["True", "False"],
+        correctAnswer: 1,
+        explanation: "The process of converting liquid to gas is called evaporation or boiling, not condensation. Condensation is the opposite process, where gas turns into liquid."
+    },
+    {
+        question: "Speed is measured in meters per second.",
+        answers: ["True", "False"],
+        correctAnswer: 0,
+        explanation: "Speed is a measure of how fast an object is moving and is typically measured in meters per second (m/s) in the metric system."
     }
-    // ... (We need to add 3 more true/false questions here)
 ];
 
 let currentQuestionIndex = 0;
@@ -176,7 +193,8 @@ function startTimer() {
 }
 
 function resetTimer() {
-    
+    clearInterval(timer);
+    startTimer();
 }
 
 // Handle answer selection
@@ -201,7 +219,7 @@ function selectAnswer(answerIndex) {
     document.getElementById("next-button").style.display = "block";
 }
 
-// Move to the next question or show the result if currentQuestionIndex >= questions.length
+// Move to the next question or show the result
 function nextQuestion() {
     currentQuestionIndex++;
     
@@ -214,15 +232,27 @@ function nextQuestion() {
 
 // Progress bar update
 function updateProgressBar() {
-
+    let progress = ((currentQuestionIndex + 1) / questions.length) * 100;
+    document.getElementById("progress").style.width = `${progress}%`;
 }
 
 // Show the quiz result
 function displayResult() {
-    
+    clearInterval(timer);
+    document.getElementById("question-box").style.display = "none";
+    document.getElementById("result-box").style.display = "block";
+    document.getElementById("score-overall").innerText = `Your Score: ${(Math.round((score/questions.length)*100 * 100) / 100).toFixed(0)} %`;
+    document.getElementById("score").innerText = `You scored ${score} out of ${questions.length}`;
+
+    let correctAnswersElement = document.getElementById("correct-answers");
+    correctAnswersElement.innerHTML = questions.map((q, index) => {
+        return `<p>${index + 1}. ${q.question} - Correct Answer: ${q.answers[q.correctAnswer]}</p>`;
+    }).join('');
 }
 
-// Restart the quiz
+// Restart the quiz and redirect to the index page
 function restartQuiz() {
-
+    currentQuestionIndex = 0;
+    score = 0;
+    window.location.href = "index.html"; // Redirect to the home page
 }
