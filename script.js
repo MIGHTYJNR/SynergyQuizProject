@@ -254,5 +254,5 @@ function displayResult() {
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    window.location.href = "index.html"; // Redirect to the home page
+    window.location.href = "quiz.html"; // Redirect to the quiz page
 }
