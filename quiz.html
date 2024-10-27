@@ -15,11 +15,18 @@
 </head>
 
 <body>
+    <header>
+        <button type="button" id="homepage"><a href="index.html">Return to Homepage</a></button>
+    </header>
     <div class="quiz-container">
 
         <h1>Interactive Quiz</h1>
 
         <div id="start-box">
+            <p id="quiz-rule">Quiz is made of 20 questions. There are 4 options for the first 15 questions for you to choose from, while the last 5 questions have True or False options.
+                You must choose your answer before the 15 seconds timer finishes and the question resets. <br>
+                Goodluck!
+            </p>
             <button id="start-button" onclick="startQuiz()">Start Quiz</button>
         </div>
 
@@ -42,7 +49,7 @@
                     <button class="answer-button" onclick="selectAnswer(1)">Answer 2</button>
                     <button class="answer-button" onclick="selectAnswer(2)">Answer 3</button>
                     <button class="answer-button" onclick="selectAnswer(3)">Answer 4</button>
-                </div> <br>
+                </div>
                 <p id="feedback" style="margin-top: 10px;"></p>
                 <p id="timer">Time left: <span id="time-left">15</span> seconds</p>
                 <button id="next-button" onclick="nextQuestion()">Next</button>
