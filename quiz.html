@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Synergy Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        * {
+            margin: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <button type="button" id="homepage"><a href="index.html">Return to Homepage</a></button>
+    </header>
+    <div class="quiz-container">
+
+        <h1>Interactive Quiz</h1>
+
+        <div id="start-box">
+            <p id="quiz-rule">Quiz is made of 20 questions. There are 4 options for the first 15 questions for you to choose from, while the last 5 questions have True or False options.
+                You must choose your answer before the 15 seconds timer finishes and the question resets. <br>
+                Goodluck!
+            </p>
+            <button id="start-button" onclick="startQuiz()">Start Quiz</button>
+        </div>
+
+        <!-- I used most tags as placeholder, getting the value from the JS by calling the id, 
+             for any improvements pls take note of the id -->
+        
+        <!-- Progress Bar -->
+
+        <div id="progress-bar">
+            <div id="progress"></div>
+        </div>
+
+        <!-- Questions, Options, and Answers -->
+
+        <div class="questionsAndAnswers">
+            <div id="question-box" style="display: none;">
+                <p id="question"></p>
+                <div id="answers">
+                    <button class="answer-button" onclick="selectAnswer(0)">Answer 1</button>
+                    <button class="answer-button" onclick="selectAnswer(1)">Answer 2</button>
+                    <button class="answer-button" onclick="selectAnswer(2)">Answer 3</button>
+                    <button class="answer-button" onclick="selectAnswer(3)">Answer 4</button>
+                </div>
+                <p id="feedback" style="margin-top: 10px;"></p>
+                <p id="timer">Time left: <span id="time-left">15</span> seconds</p>
+                <button id="next-button" onclick="nextQuestion()">Next</button>
+            </div> <br>
+            <div id="result-box" style="display: none;">
+                <h2 id="score-overall">Your Score:</h2>
+                <p id="score"></p>
+                <div id="correct-answers"></div>
+                <button id="restartQuiz" onclick="restartQuiz()">Restart Quiz</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
