@@ -4,14 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synergy Quiz App</title>
+    <title>Synergy Quiz</title>
     <link rel="stylesheet" href="style.css">
-
-    <style>
-        * {
-            margin: 0.5rem;
-        }
-    </style>
 </head>
 
 <body>
@@ -54,10 +48,12 @@
                 <p id="timer">Time left: <span id="time-left">15</span> seconds</p>
                 <button id="next-button" onclick="nextQuestion()">Next</button>
             </div> <br>
+
             <div id="result-box" style="display: none;">
-                <h2 id="score-overall">Your Score:</h2>
+                <h2>Quiz Results</h2>
                 <p id="score"></p>
-                <div id="correct-answers"></div>
+                <p id="score-overall"></p>
+                <div id="correct-answers"></div> 
                 <button id="restartQuiz" onclick="restartQuiz()">Restart Quiz</button>
             </div>
         </div>

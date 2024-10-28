@@ -154,6 +154,24 @@ body {
     cursor: pointer;
 }
 
+#start-button {
+    width: 400px;
+    padding: 1rem;
+    margin: 0.25rem auto 0.5rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#start-button:hover {
+    background-color: #0F1628;
+    color: #fff;
+}
+
 #next-button, #restartQuiz {
     margin-left: 5rem;
 }
@@ -193,4 +211,22 @@ body {
     margin: 0.5rem;
     padding: 0.5rem;
     text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+#score, #score-overall {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#correct-answers{
+    font-size: 0.9em;
 }

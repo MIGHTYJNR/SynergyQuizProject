@@ -240,13 +240,23 @@ function updateProgressBar() {
 function displayResult() {
     clearInterval(timer);
     document.getElementById("question-box").style.display = "none";
+    document.getElementById("progress-bar").style.display = "none";
     document.getElementById("result-box").style.display = "block";
-    document.getElementById("score-overall").innerText = `Your Score: ${(Math.round((score/questions.length)*100 * 100) / 100).toFixed(0)} %`;
+
+    document.getElementById("score-overall").innerText = `Your Score: ${(Math.round((score / questions.length) * 100 * 100) / 100).toFixed(0)} %`;
     document.getElementById("score").innerText = `You scored ${score} out of ${questions.length}`;
 
     let correctAnswersElement = document.getElementById("correct-answers");
     correctAnswersElement.innerHTML = questions.map((q, index) => {
-        return `<p>${index + 1}. ${q.question} - Correct Answer: ${q.answers[q.correctAnswer]}</p>`;
+        const userAnswerCorrect = index < currentQuestionIndex && questions[index].correctAnswer === q.correctAnswer;
+        const feedbackClass = userAnswerCorrect ? "correct" : "wrong";
+
+        return `
+            <p class="${feedbackClass}">
+                <strong>${index + 1}. ${q.question}</strong> <br>
+                Correct Answer: ${q.answers[q.correctAnswer]}
+            </p>
+        `;
     }).join('');
 }
 
@@ -254,5 +264,5 @@ function displayResult() {
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    window.location.href = "quiz.html"; // Redirect to the quiz page
+    window.location.href = "quiz.html"; 
 }
