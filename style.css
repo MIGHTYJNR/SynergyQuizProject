@@ -9,7 +9,7 @@ body {
 }
 
 .quiz-container {
-    background-color: white;
+    background-color:#4c7bff ;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -21,8 +21,12 @@ h1 {
     margin-bottom: 20px;
 }
 
-.answer-button:hover {
-    background-color: #d3d3d3;
+#question, #timer, #time-left, #feedback {
+    font-weight: 500;
+    font-size: large;
+}
+
+
 }
 
 #progress-bar {
@@ -38,4 +42,32 @@ h1 {
     background-color: #4CAF50;
     height: 100%;
     width: 0;
+}
+#question-box {
+    background-color:  #afdfdf;
+    
+}
+button {
+    border: none;
+    padding: 10px 10px;
+    color: #fff;
+    background-color: #0d1728;
+    font-weight: bold;
+    width: 150px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+#answers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#next-button {
+    margin-left: 280px;
+    width: 100px;
+    
+}
+button:hover {
+    transform: scale(0.98);
 }
