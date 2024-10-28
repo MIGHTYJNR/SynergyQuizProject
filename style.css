@@ -8,17 +8,18 @@ body {
     padding: 0 5rem;
 }
 
+/* Reset & Global Styles */
 * {
     margin: 0;
     box-sizing: border-box;
 }
 
 /* Styling for the homepage (index.html) */
-
 .quiz-header {
     display: flex;
     flex-direction: row;
     padding-top: 2rem;
+    align-items: center;
 }
 
 .quiz-header img {
@@ -33,6 +34,9 @@ body {
 .quiz-intro {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     margin-top: 2.5rem;
 }
 
@@ -40,11 +44,14 @@ body {
     line-height: 25pt;
     margin-left: 1rem;
     padding-top: 1rem;
+    max-width: 600px;
 }
 
 .quiz-intro img {
-    width: 773.16px;
-    height: 426.5px;
+    width: 100%;
+    max-width: 773.16px;
+    height: auto;
+    object-fit: cover;
 }
 
 #intro-msg {
@@ -62,20 +69,19 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0.25rem;
-    margin-top: 5rem;
+    margin: 2rem auto 5rem;
     text-decoration: none;
     font-size: 16px;
     color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #start-quiz:hover {
-    background-color: #2F4BFF ;
+    background-color: #2F4BFF;
 }
 
-
-
 /* Styling for Questions and Answers page (quiz.html) */
-
 #homepage {
     border: none;
     background: none;
@@ -109,9 +115,7 @@ body {
     display: block;
     text-align: center;
     max-width: 600px;
-    margin-top: 2rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 2rem auto;
     line-height: 35px;
 }
 
@@ -123,9 +127,11 @@ body {
 #start-button {
     border: none;
     padding: 0.15rem;
-    margin-top: 2rem;
+    margin: 2rem auto 0;
     border-radius: 10px;
     width: 200px;
+    cursor: pointer;
+    display: block;
 }
 
 #answers {
@@ -136,28 +142,16 @@ body {
     border-radius: 10px;
     gap: 20px;
     margin-top: 0.25rem;
+    flex-wrap: wrap;
 }
 
 .answer-button,
 #next-button,
 #restartQuiz {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
     padding: 1rem;
-    margin-bottom: 0.5rem;
-    margin-top: 0.25rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-#start-button {
-    width: 400px;
-    padding: 1rem;
-    margin: 0.25rem auto 0.5rem; 
+    margin: 0.25rem auto 0.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -167,13 +161,13 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#start-button:hover {
-    background-color: #0F1628;
-    color: #fff;
+.answer-button:hover {
+    background-color: #d3d3d3;
 }
 
 #next-button, #restartQuiz {
-    margin-left: 5rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #timer {
@@ -186,16 +180,11 @@ body {
     font-style: italic;
 }
 
-.answer-button:hover {
-    background-color: #d3d3d3;
-}
-
 #progress-bar {
     width: 100%;
     background-color: #ddd;
     height: 10px;
-    margin-bottom: 15px;
-    margin-top: 0.99rem;
+    margin: 0.99rem 0 15px;
     border-radius: 5px;
     overflow: hidden;
 }
@@ -227,6 +216,81 @@ h2 {
     font-weight: bold;
     margin-bottom: 10px;
 }
-#correct-answers{
+
+#correct-answers {
     font-size: 0.9em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 18px;
+        padding: 0 2rem;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .quiz-header h2 {
+        padding: 0.5rem 0;
+    }
+
+    .quiz-intro {
+        flex-direction: column;
+    }
+
+    .quiz-intro-msg {
+        margin-left: 0;
+        padding-top: 1.5rem;
+        text-align: center;
+    }
+
+    #start-quiz {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.5rem;
+    }
+
+    .quiz-container {
+        max-width: 90%;
+    }
+
+    #answers {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .answer-button, #next-button, #restartQuiz {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+        padding: 0 1rem;
+    }
+
+    .quiz-intro img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #start-quiz {
+        width: 100%;
+        padding: 0.75rem;
+    }
+
+    .answer-button, #next-button, #restartQuiz {
+        width: 100%;
+    }
+
+    #start-button {
+        width: 100%;
+        padding: 0.5rem;
+    }
 }
