@@ -147,7 +147,8 @@ body {
 
 .answer-button,
 #next-button,
-#restartQuiz {
+#restartQuiz,
+#start-button {
     width: 100%;
     max-width: 400px;
     padding: 1rem;
@@ -165,14 +166,20 @@ body {
     background-color: #d3d3d3;
 }
 
-#next-button, #restartQuiz {
+#next-button, #restartQuiz, #start-button {
     margin-left: auto;
     margin-right: auto;
+}
+
+#next-button:hover, #restartQuiz:hover, #start-button:hover {
+    background-color: #0F1628;
+    color: #d3d3d3;
 }
 
 #timer {
     margin-top: 0.25rem;
     font-style: italic;
+    font-size: 80%;
 }
 
 #time-left {
@@ -219,6 +226,18 @@ h2 {
 
 #correct-answers {
     font-size: 0.9em;
+}
+
+#feedback {
+    font-size: 70%;
+    border-radius: 10px;
+}
+
+.feedback-active {
+    background-color: aliceblue;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 /* Responsive Design */

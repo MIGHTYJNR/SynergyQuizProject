@@ -150,7 +150,6 @@ function displayQuestion() {
 
     let questionObj = questions[currentQuestionIndex];
     document.getElementById("question").innerText = questionObj.question;
-    document.getElementById("feedback").innerText = ""; // Clear feedback
     
     let buttons = document.getElementsByClassName("answer-button");
     
@@ -203,6 +202,8 @@ function selectAnswer(answerIndex) {
     let correctIndex = questions[currentQuestionIndex].correctAnswer;
     let feedbackContent = document.getElementById("feedback");
     
+    feedbackContent.classList.add("feedback-active");
+
     if (answerIndex === correctIndex) {
         score++;
         feedbackContent.innerHTML = `<span style="color: green;">Correct!</span> ${questions[currentQuestionIndex].explanation}`;
@@ -221,6 +222,11 @@ function selectAnswer(answerIndex) {
 
 // Move to the next question or show the result
 function nextQuestion() {
+    let feedbackContent = document.getElementById("feedback");
+
+    // This will remove and clear feedback background & content
+    feedbackContent.classList.remove("feedback-active");
+    feedbackContent.innerHTML = "";
     currentQuestionIndex++;
     
     if (currentQuestionIndex < questions.length) {
@@ -264,5 +270,5 @@ function displayResult() {
 function restartQuiz() {
     currentQuestionIndex = 0;
     score = 0;
-    window.location.href = "quiz.html"; 
+    window.location.href = "index.html"; 
 }
